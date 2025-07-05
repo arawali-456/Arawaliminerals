@@ -197,15 +197,33 @@ class ContactForm {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        // Simulate form submission
-        setTimeout(() => {
+        // Get form data
+        const formData = new FormData(this.form);
+        
+        // Send to Google Sheets
+        fetch(this.form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Required for Google Apps Script
+        })
+        .then((response) => {
+            // With no-cors, we can't read the response, so we assume success
             this.showMessage('Thank you for your message! We will get back to you soon.', 'success');
             this.form.reset();
-            
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Fallback: try traditional form submission
+            this.showMessage('Sending message...', 'info');
+            setTimeout(() => {
+                this.form.submit();
+            }, 1000);
+        })
+        .finally(() => {
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        });
     }
 
     showMessage(message, type = 'info') {
@@ -349,6 +367,23 @@ document.addEventListener('DOMContentLoaded', () => {
     new LoadingAnimation();
     new AnimationObserver();
     new ThemeManager();
+    
+    // Check for form submission success
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submit') === 'success') {
+        // Show success message if redirected from Google Apps Script
+        const contactForm = document.querySelector('#contactForm');
+        if (contactForm) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'form-message status status--success';
+            messageElement.textContent = 'Thank you for your message! We will get back to you soon.';
+            messageElement.style.marginTop = 'var(--space-16)';
+            contactForm.appendChild(messageElement);
+            
+            // Remove success parameter from URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
 });
 
 // Add some CSS for animations via JavaScript
