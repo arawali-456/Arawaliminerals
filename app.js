@@ -22,23 +22,27 @@ class Navigation {
 
         // Handle mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const navList = document.querySelector('.nav__list');
+        const mobileNavList = document.querySelector('.mobile-nav__list');
         
-        if (mobileToggle && navList) {
-            mobileToggle.addEventListener('click', () => {
-                navList.classList.toggle('active');
+        if (mobileToggle && mobileNavList) {
+            mobileToggle.addEventListener('click', (e) => {
+                // Don't toggle if clicking on a navigation link
+                if (e.target.classList.contains('mobile-nav__link')) {
+                    return;
+                }
+                mobileNavList.classList.toggle('active');
                 mobileToggle.classList.toggle('active');
             });
         }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            const navList = document.querySelector('.nav__list');
+            const mobileNavList = document.querySelector('.mobile-nav__list');
             const mobileToggle = document.querySelector('.mobile-menu-toggle');
             
-            if (navList && navList.classList.contains('active') && 
-                !navList.contains(e.target) && !mobileToggle.contains(e.target)) {
-                navList.classList.remove('active');
+            if (mobileNavList && mobileNavList.classList.contains('active') && 
+                !mobileNavList.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileNavList.classList.remove('active');
                 mobileToggle.classList.remove('active');
             }
         });
@@ -63,16 +67,16 @@ class Navigation {
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Close mobile menu if open
-        const navList = document.querySelector('.nav__list');
+        const mobileNavList = document.querySelector('.mobile-nav__list');
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        if (navList && navList.classList.contains('active')) {
-            navList.classList.remove('active');
+        if (mobileNavList && mobileNavList.classList.contains('active')) {
+            mobileNavList.classList.remove('active');
             mobileToggle.classList.remove('active');
         }
     }
 
     updateNavigation(activePageId) {
-        const navLinks = document.querySelectorAll('.nav__link');
+        const navLinks = document.querySelectorAll('.nav__link, .mobile-nav__link');
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('data-page') === activePageId) {
