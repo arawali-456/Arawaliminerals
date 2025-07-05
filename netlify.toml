@@ -1,0 +1,28 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "http://arawaliminerals.com/*"
+  to = "https://arawaliminerals.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.arawaliminerals.com/*"
+  to = "https://arawaliminerals.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.arawaliminerals.com/*"
+  to = "https://arawaliminerals.com/:splat"
+  status = 301
+  force = true
+
+[headers]
+  for = "/*"
+    [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block" 
