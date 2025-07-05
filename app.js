@@ -374,46 +374,5 @@ style.textContent = `
         border-color: var(--color-error);
         box-shadow: 0 0 0 3px rgba(var(--color-error-rgb), 0.1);
     }
-    
-    @media (max-width: 768px) {
-        .nav__list {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-top: none;
-            flex-direction: column;
-            padding: var(--space-16);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--duration-normal) var(--ease-standard);
-        }
-        
-        .nav__list.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .nav__list li {
-            margin-bottom: var(--space-8);
-        }
-        
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    }
 `;
 document.head.appendChild(style);
