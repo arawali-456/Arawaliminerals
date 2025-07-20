@@ -1,229 +1,162 @@
 # ARAWALI GROUP - Premium Industrial Minerals
 
-A modern, responsive website for ARAWALI GROUP showcasing premium industrial minerals and services.
+A modern, responsive website for ARAWALI GROUP, showcasing premium industrial minerals and comprehensive mining services. Built with clean, accessible design and optimized for all devices.
 
-## HTTPS Setup Guide
+## 🌟 Features
 
-This guide will help you enable HTTPS for your domain `arawaliminerals.com`.
+### **Modern Design**
+- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
+- **Dark/Light Mode**: Automatic theme switching based on user preference
+- **Professional Typography**: Clean, readable fonts with proper hierarchy
+- **Smooth Animations**: Subtle transitions and hover effects
+
+### **Key Sections**
+- **Home**: Hero section with company overview and featured services
+- **About**: Company mission, vision, and core values
+- **Products**: Comprehensive service offerings and quality standards
+- **Sustainability**: Environmental commitment and responsible practices
+- **Contact**: Contact form and business information
+
+### **Technical Features**
+- **SEO Optimized**: Meta tags, structured data, and semantic HTML
+- **Performance**: Optimized images and efficient CSS
+- **Accessibility**: WCAG compliant with proper ARIA labels
+- **Security**: HTTPS ready with security headers
+
+## 🚀 Getting Started
 
 ### Prerequisites
+- Modern web browser
+- Web server (for local development)
 
-1. **Domain Ownership**: You must own the domain `arawaliminerals.com`
-2. **DNS Access**: You need access to your domain's DNS settings
-3. **Hosting Platform**: Choose one of the supported hosting platforms below
-
-### Option 1: GitHub Pages (Recommended for Static Sites)
-
-1. **Push your code to GitHub**:
+### Installation
+1. Clone the repository:
    ```bash
-   git add .
-   git commit -m "Add HTTPS configuration"
-   git push origin main
+   git clone https://github.com/arawali-456/Arawaliminerals.git
+   cd Arawaliminerals
    ```
 
-2. **Enable GitHub Pages**:
-   - Go to your repository settings
-   - Scroll to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose your main branch
-   - Save
-
-3. **Configure Custom Domain**:
-   - In the same Pages section, enter `arawaliminerals.com` in the custom domain field
-   - Check "Enforce HTTPS" (this will be available after DNS is configured)
-   - Save
-
-4. **Configure DNS**:
-   Add these records to your domain's DNS settings:
-   ```
-   Type: A
-   Name: @
-   Value: 185.199.108.153
-   Value: 185.199.109.153
-   Value: 185.199.110.153
-   Value: 185.199.111.153
+2. Open `index.html` in your browser or serve locally:
+   ```bash
+   # Using Python
+   python -m http.server 8000
    
-   Type: CNAME
-   Name: www
-   Value: yourusername.github.io
+   # Using Node.js
+   npx serve .
    ```
 
-### Option 2: Netlify
+3. Visit `http://localhost:8000` in your browser
 
-1. **Deploy to Netlify**:
-   - Connect your GitHub repository to Netlify
-   - Build command: (leave empty for static site)
-   - Publish directory: `.`
+## 📁 Project Structure
 
-2. **Configure Custom Domain**:
-   - Go to Site settings > Domain management
-   - Add custom domain: `arawaliminerals.com`
-   - Netlify will automatically provision SSL certificate
+```
+Arawaliminerals/
+├── index.html          # Main HTML file
+├── style.css           # Complete styling with CSS variables
+├── app.js              # JavaScript functionality
+├── assets/
+│   └── img/
+│       ├── favicon.ico
+│       ├── logo-header-250.png
+│       ├── logo-header-300.png
+│       └── logo-header-400.png
+├── .gitignore          # Git ignore rules
+├── CNAME               # Custom domain configuration
+├── netlify.toml        # Netlify deployment config
+├── vercel.json         # Vercel deployment config
+└── web.config          # IIS server configuration
+```
 
-3. **Configure DNS**:
-   Add these records to your domain's DNS settings:
-   ```
-   Type: A
-   Name: @
-   Value: 75.2.60.5
-   
-   Type: CNAME
-   Name: www
-   Value: your-site-name.netlify.app
-   ```
+## 🎨 Design System
 
-### Option 3: Vercel
+### **Color Palette**
+- **Primary**: Teal (#21808D) - Professional and trustworthy
+- **Secondary**: Warm brown (#5E5240) - Natural and earthy
+- **Background**: Clean whites and grays
+- **Text**: High contrast for readability
 
-1. **Deploy to Vercel**:
-   - Connect your GitHub repository to Vercel
-   - Vercel will automatically detect it's a static site
+### **Typography**
+- **Primary Font**: FKGroteskNeue (with fallbacks)
+- **Monospace**: Berkeley Mono for code elements
+- **Responsive Sizing**: Scales appropriately across devices
 
-2. **Configure Custom Domain**:
-   - Go to Project settings > Domains
-   - Add domain: `arawaliminerals.com`
-   - Vercel will automatically provision SSL certificate
+### **Components**
+- **Buttons**: Primary, secondary, and outline variants
+- **Cards**: Consistent styling for content sections
+- **Forms**: Accessible form controls with validation
+- **Navigation**: Responsive header with mobile menu
 
-3. **Configure DNS**:
-   Add these records to your domain's DNS settings:
-   ```
-   Type: A
-   Name: @
-   Value: 76.76.19.34
-   
-   Type: CNAME
-   Name: www
-   Value: cname.vercel-dns.com
-   ```
+## 📱 Responsive Design
 
-### Option 4: Cloudflare (Free SSL)
+The website is fully responsive with breakpoints at:
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
 
-1. **Add Domain to Cloudflare**:
-   - Sign up for Cloudflare
-   - Add your domain `arawaliminerals.com`
-   - Update your domain's nameservers to Cloudflare's
+## 🌐 Browser Support
 
-2. **Configure SSL/TLS**:
-   - Go to SSL/TLS settings
-   - Set encryption mode to "Full" or "Full (strict)"
-   - Enable "Always Use HTTPS"
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-3. **Configure DNS**:
-   Add these records in Cloudflare DNS:
-   ```
-   Type: A
-   Name: @
-   Value: [Your hosting provider's IP]
-   
-   Type: CNAME
-   Name: www
-   Value: arawaliminerals.com
-   ```
+## 🔧 Customization
 
-### Option 5: Traditional Web Hosting
+### **Colors**
+Edit CSS variables in `style.css`:
+```css
+:root {
+  --color-primary: rgba(33, 128, 141, 1);
+  --color-secondary: rgba(94, 82, 64, 0.12);
+  /* ... more variables */
+}
+```
 
-If you're using traditional web hosting (cPanel, etc.):
+### **Content**
+- Update company information in `index.html`
+- Modify images in `assets/img/`
+- Adjust styling in `style.css`
 
-1. **Contact Your Hosting Provider**:
-   - Request SSL certificate installation
-   - Many providers offer free Let's Encrypt certificates
+## 📈 Performance
 
-2. **Configure .htaccess** (Apache):
-   Create a `.htaccess` file in your root directory:
-   ```apache
-   RewriteEngine On
-   RewriteCond %{HTTPS} off
-   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-   
-   # Security Headers
-   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-   Header always set X-Content-Type-Options nosniff
-   Header always set X-Frame-Options DENY
-   Header always set X-XSS-Protection "1; mode=block"
-   ```
+- **Optimized Images**: Multiple logo sizes for different use cases
+- **Minimal Dependencies**: No external frameworks required
+- **Efficient CSS**: CSS variables for maintainability
+- **Fast Loading**: Optimized for quick page loads
 
-3. **Configure web.config** (IIS):
-   Create a `web.config` file in your root directory:
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <configuration>
-     <system.webServer>
-       <rewrite>
-         <rules>
-           <rule name="HTTP to HTTPS redirect" stopProcessing="true">
-             <match url="(.*)" />
-             <conditions>
-               <add input="{HTTPS}" pattern="off" ignoreCase="true" />
-             </conditions>
-             <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" redirectType="Permanent" />
-           </rule>
-         </rules>
-       </rewrite>
-       <httpProtocol>
-         <customHeaders>
-           <add name="Strict-Transport-Security" value="max-age=31536000; includeSubDomains; preload" />
-           <add name="X-Content-Type-Options" value="nosniff" />
-           <add name="X-Frame-Options" value="DENY" />
-           <add name="X-XSS-Protection" value="1; mode=block" />
-         </customHeaders>
-       </httpProtocol>
-     </system.webServer>
-   </configuration>
-   ```
+## 🔒 Security
 
-## Troubleshooting
+- **HTTPS Ready**: Configured for secure connections
+- **Security Headers**: XSS protection and content type options
+- **Input Validation**: Form validation and sanitization
+- **No External Dependencies**: Reduces attack surface
 
-### Common Issues
+## 📞 Contact Information
 
-1. **"HTTPS Unavailable" Error**:
-   - Ensure your domain is properly configured in your hosting platform
-   - Wait 24-48 hours for DNS propagation
-   - Check that your hosting provider supports HTTPS
+**ARAWALI GROUP**
+- **Address**: 185 Shastri Nagar, Sector 14, Hiran Magri, Udaipur, Rajasthan, India
+- **Phone**: +91-8955645272
+- **Email**: sales@arawaliminerals.com
+- **Business Hours**: Monday - Saturday, 10:00 AM - 6:00 PM IST
 
-2. **Mixed Content Warnings**:
-   - Ensure all resources (images, scripts, stylesheets) use HTTPS URLs
-   - Update any hardcoded HTTP URLs in your code
+## 🏭 Company Overview
 
-3. **SSL Certificate Issues**:
-   - Verify your domain ownership
-   - Check DNS configuration
-   - Contact your hosting provider for certificate installation
+ARAWALI GROUP is a leading provider of premium industrial minerals in Rajasthan, India. We specialize in:
 
-4. **Redirect Loops**:
-   - Check your redirect rules
-   - Ensure you're not redirecting HTTPS to HTTPS
+- **Sustainable Mining**: Environmentally responsible extraction
+- **Advanced Processing**: State-of-the-art micronization technology
+- **Quality Control**: International standards compliance
+- **Global Supply**: Reliable domestic and international logistics
 
-### Testing HTTPS
+## 🤝 Contributing
 
-After setup, test your HTTPS configuration:
+This is a company website repository. For business inquiries, please contact us directly.
 
-1. **Visit your site**: `https://arawaliminerals.com`
-2. **Check SSL certificate**: Click the lock icon in your browser
-3. **Test redirects**: Try accessing `http://arawaliminerals.com` - it should redirect to HTTPS
-4. **Use SSL testing tools**:
-   - [SSL Labs](https://www.ssllabs.com/ssltest/)
-   - [Why No Padlock](https://www.whynopadlock.com/)
+## 📄 License
 
-### Security Best Practices
+© 2025 ARAWALI GROUP. All rights reserved.
 
-1. **Use HTTPS Everywhere**: All pages should be served over HTTPS
-2. **Security Headers**: The configuration files include important security headers
-3. **HSTS**: Strict Transport Security is configured for maximum security
-4. **Regular Updates**: Keep your SSL certificates up to date
+---
 
-## Support
-
-If you continue to have issues with HTTPS setup:
-
-1. **Check your hosting provider's documentation**
-2. **Contact your hosting provider's support**
-3. **Verify your domain registrar's DNS settings**
-4. **Use online DNS checking tools to verify propagation**
-
-## Files Added for HTTPS Support
-
-- `CNAME` - For GitHub Pages custom domain
-- `netlify.toml` - Netlify configuration with HTTPS redirects
-- `vercel.json` - Vercel configuration with security headers
-- `README.md` - This comprehensive setup guide
-
-The `index.html` file has been updated with security meta tags for additional protection. 
+**Made with ❤️ in India** by [Manohar](https://github.com/manohar6839) 
